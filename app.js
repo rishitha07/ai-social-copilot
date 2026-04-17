@@ -128,6 +128,10 @@ const goalAdjustments = {
 const form = document.getElementById("copilot-form");
 const emptyState = document.getElementById("empty-state");
 const results = document.getElementById("results");
+const formStatus = document.getElementById("form-status");
+const submitLabel = document.getElementById("submit-label");
+const responseOrigin = document.getElementById("response-origin");
+const summaryLine = document.getElementById("summary-line");
 
 const startersList = document.getElementById("starters-list");
 const followUpsList = document.getElementById("followups-list");
@@ -146,8 +150,8 @@ function renderList(target, items) {
 }
 
 function buildPractice(role, scenario, tone, context) {
-  const sceneContext = context?.trim()
-    ? `Given your note, "${context.trim()}", focus on sounding natural and specific.`
+  const sceneContext = context
+    ? `Given your note, "${context}", focus on sounding natural and specific.`
     : "Keep the conversation short, clear, and easy for the other person to engage with.";
 
   return [
@@ -170,54 +174,122 @@ function buildPractice(role, scenario, tone, context) {
   ];
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+function setStatus(message, type = "info") {
+  if (!message) {
+    formStatus.className = "form-status hidden";
+    formStatus.textContent = "";
+    return;
+  }
 
-  const role = document.getElementById("role").value;
-  const scenario = document.getElementById("scenario").value;
-  const goal = document.getElementById("goal").value;
-  const tone = document.getElementById("tone").value;
-  const context = document.getElementById("context").value;
+  formStatus.className = `form-status ${type}`;
+  formStatus.textContent = message;
+}
 
+function setLoading(isLoading) {
+  form.querySelector("button").disabled = isLoading;
+  submitLabel.textContent = isLoading ? "Generating..." : "Generate guidance";
+}
+
+function collectInput() {
+  return {
+    role: document.getElementById("role").value,
+    scenario: document.getElementById("scenario").value,
+    goal: document.getElementById("goal").value,
+    tone: document.getElementById("tone").value,
+    context: document.getElementById("context").value.trim()
+  };
+}
+
+function buildFallbackResponse({ role, scenario, goal, tone, context }) {
   const base = scenarioData[scenario];
 
-  const starters = [
-    `${goalAdjustments[goal]} ${base.starters[0]}`,
-    base.starters[1],
-    base.starters[2]
-  ];
+  return {
+    origin: "Fallback demo guidance",
+    summary: `Showing local demo guidance for a ${role} who wants help with ${goal} during a ${scenario}.`,
+    starters: [
+      `${goalAdjustments[goal]} ${base.starters[0]}`,
+      base.starters[1],
+      base.starters[2]
+    ],
+    followUps: [
+      base.followUps[0],
+      `${base.followUps[1]} ${toneStyles[tone]}`,
+      base.followUps[2]
+    ],
+    nextSteps: [
+      base.nextSteps[0],
+      `${base.nextSteps[1]} ${goalAdjustments[goal]}`,
+      base.nextSteps[2]
+    ],
+    tips: [
+      base.tips[0],
+      `${base.tips[1]} ${toneStyles[tone]}`,
+      context ? `Use this personal context when speaking: ${context}` : base.tips[2]
+    ],
+    practice: buildPractice(role, scenario, tone, context)
+  };
+}
 
-  const followUps = [
-    base.followUps[0],
-    `${base.followUps[1]} ${toneStyles[tone]}`,
-    base.followUps[2]
-  ];
-
-  const nextSteps = [
-    base.nextSteps[0],
-    `${base.nextSteps[1]} ${goalAdjustments[goal]}`,
-    base.nextSteps[2]
-  ];
-
-  const tips = [
-    base.tips[0],
-    `${base.tips[1]} ${toneStyles[tone]}`,
-    context.trim() ? `Use this personal context when speaking: ${context.trim()}` : base.tips[2]
-  ];
-
-  renderList(startersList, starters);
-  renderList(followUpsList, followUps);
-  renderList(nextStepsList, nextSteps);
-  renderList(tipsList, tips);
-
+function renderPractice(lines) {
   practiceScript.innerHTML = "";
-  buildPractice(role, scenario, tone, context).forEach((line) => {
+
+  lines.forEach((line) => {
     const item = document.createElement("div");
     item.className = "practice-line";
     item.innerHTML = `<strong>${line.speaker}:</strong> ${line.text}`;
     practiceScript.appendChild(item);
   });
+}
+
+function renderResponse(payload) {
+  renderList(startersList, payload.starters);
+  renderList(followUpsList, payload.followUps);
+  renderList(nextStepsList, payload.nextSteps);
+  renderList(tipsList, payload.tips);
+  renderPractice(payload.practice);
+
+  responseOrigin.textContent = payload.origin;
+  summaryLine.textContent = payload.summary;
 
   emptyState.classList.add("hidden");
   results.classList.remove("hidden");
+}
+
+async function generateGuidance(input) {
+  const response = await fetch("/api/generate", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(input)
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "The AI request could not be completed.");
+  }
+
+  return data;
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const input = collectInput();
+
+  setLoading(true);
+  setStatus("Generating tailored conversation guidance from the AI copilot...");
+
+  try {
+    const payload = await generateGuidance(input);
+    renderResponse(payload);
+    setStatus("");
+  } catch (error) {
+    const fallback = buildFallbackResponse(input);
+    renderResponse(fallback);
+    setStatus(`${error.message} Showing local demo guidance so you can still present the product.`, "error");
+  } finally {
+    setLoading(false);
+  }
 });

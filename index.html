@@ -41,6 +41,11 @@
           <h2>Describe the situation</h2>
         </div>
 
+        <div class="mode-banner">
+          <span class="mode-dot"></span>
+          <p><strong>Live AI mode:</strong> responses are generated from your situation in real time when the backend is configured.</p>
+        </div>
+
         <label>
           Your role
           <select id="role" name="role">
@@ -92,7 +97,11 @@
           ></textarea>
         </label>
 
-        <button type="submit" class="primary-btn">Generate guidance</button>
+        <div id="form-status" class="form-status hidden" aria-live="polite"></div>
+
+        <button type="submit" class="primary-btn">
+          <span id="submit-label">Generate guidance</span>
+        </button>
       </form>
 
       <section class="panel output-panel">
@@ -106,6 +115,11 @@
         </div>
 
         <div id="results" class="results hidden">
+          <div class="result-summary">
+            <p id="response-origin" class="response-origin">Ready for live AI guidance.</p>
+            <p id="summary-line" class="summary-line"></p>
+          </div>
+
           <div class="result-grid">
             <article class="result-card">
               <h3>Conversation starters</h3>

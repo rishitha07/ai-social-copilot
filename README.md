@@ -1,6 +1,14 @@
 # AI Social Copilot
 
-AI Social Copilot is a hackathon prototype that helps people navigate everyday workplace conversations with more confidence. It is designed for international students, early-career professionals, interns, and new employees who may find casual workplace communication difficult or intimidating.
+AI Social Copilot is a hackathon app that helps people navigate everyday workplace conversations with more confidence. It is designed for international students, early-career professionals, interns, and new employees who may find casual workplace communication difficult or intimidating.
+
+## Live Demo Features
+
+- real-time AI-generated workplace conversation guidance
+- fallback local demo mode if the API key is not configured
+- practice simulation for rehearsing responses
+- culturally aware tips tailored to the user scenario
+- responsive interface designed for hackathon demos
 
 ## Project Title
 
@@ -80,13 +88,31 @@ This project naturally supports practical use of Codex for both coding and non-c
 
 ## Demo Notes
 
-This repository currently contains a polished front-end prototype that demonstrates the core experience:
+This repository now contains a working web application with a lightweight Node server and OpenAI-backed generation. The demo experience shows:
 
 - select a workplace scenario
 - choose a communication goal and tone
 - add personal context
-- generate tailored conversation guidance
+- generate tailored conversation guidance from a live AI model
 - review a mini conversation practice flow
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A["User in browser"] --> B["Frontend form<br/>index.html + app.js"]
+    B --> C["Local Node server<br/>server.js"]
+    C --> D["OpenAI Responses API"]
+    D --> C
+    C --> B
+    B --> E["Structured UI cards<br/>starters, follow-ups, tips, practice"]
+```
+
+More detail is in [docs/ARCHITECTURE.md](/Users/rishithapapolu/Documents/Codex/2026-04-17-i-m-participating-in-a-hackathon/docs/ARCHITECTURE.md).
+
+## Screenshots
+
+Store repo screenshots in [docs/screenshots](/Users/rishithapapolu/Documents/Codex/2026-04-17-i-m-participating-in-a-hackathon/docs/screenshots/README.md). A recommended shot list is included there so you can quickly add polished submission assets.
 
 ## Repository Link
 
@@ -106,12 +132,42 @@ You can include:
 
 ## Local Run
 
-Because this is a static prototype, you can open `index.html` directly in a browser or serve it locally with a simple static server.
+1. Create a local `.env` file from `.env.example`.
+2. Add your OpenAI API key.
+3. Start the app:
+
+```bash
+npm start
+```
+
+4. Open `http://localhost:3000`
+
+If the API key is missing, the app still works in fallback demo mode so you can keep presenting the product.
+
+## Environment Variables
+
+```bash
+OPENAI_API_KEY=your_api_key_here
+OPENAI_MODEL=gpt-4.1-mini
+PORT=3000
+```
+
+## OpenAI Integration Notes
+
+The backend uses the OpenAI Responses API with Structured Outputs so the UI receives reliable JSON for:
+
+- conversation starters
+- follow-up responses
+- what to say next
+- cultural tips
+- practice dialogue
+
+I chose `gpt-4.1-mini` by default because OpenAI’s current docs describe it as a smaller, faster GPT-4.1 model with strong instruction following and tool-calling support, while the Responses API is the recommended interface for text generation apps and Structured Outputs. Sources: [Responses API guide](https://platform.openai.com/docs/guides/text?api-mode=responses), [Responses API reference](https://platform.openai.com/docs/api-reference/responses/create?api-mode=responses), [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs?lang=javascript), [GPT-4.1 mini model page](https://platform.openai.com/docs/models/gpt-4.1-mini)
 
 ## Suggested Next Build Steps
 
-1. Connect the UI to an LLM API for dynamic conversation generation.
-2. Add user authentication and scenario history.
-3. Support voice input and spoken response practice.
-4. Add multilingual and culturally adaptive guidance.
+1. Add user authentication and scenario history.
+2. Support voice input and spoken response practice.
+3. Add multilingual and culturally adaptive guidance.
+4. Save favorite suggestions and rehearsal sessions.
 5. Create a short demo video that shows a realistic user journey.
