@@ -1,6 +1,12 @@
 # Screenshot Checklist
 
-Add screenshots for your repo and hackathon submission in this folder.
+This folder now includes a strong starter set for the repo and hackathon submission.
+
+## Current Selected Images
+
+1. `01-homepage.png` - hero section with title and value proposition
+2. `02-live-ai-results.png` - complete form plus live AI-generated output
+3. `03-practice-mode.png` - practice mode and lower-page coaching flow
 
 ## Recommended Images
 
@@ -13,9 +19,9 @@ Add screenshots for your repo and hackathon submission in this folder.
 ## Naming Suggestions
 
 - `01-homepage.png`
-- `02-form-filled.png`
-- `03-ai-results.png`
-- `04-practice-mode.png`
+- `02-live-ai-results.png`
+- `03-practice-mode.png`
+- `04-form-filled.png`
 - `05-mobile-view.png`
 
 ## Quick Tip

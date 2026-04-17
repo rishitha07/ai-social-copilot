@@ -114,6 +114,18 @@ More detail is in [docs/ARCHITECTURE.md](/Users/rishithapapolu/Documents/Codex/2
 
 Store repo screenshots in [docs/screenshots](/Users/rishithapapolu/Documents/Codex/2026-04-17-i-m-participating-in-a-hackathon/docs/screenshots/README.md). A recommended shot list is included there so you can quickly add polished submission assets.
 
+### Homepage
+
+![AI Social Copilot homepage](./docs/screenshots/01-homepage.png)
+
+### Live AI Results
+
+![AI Social Copilot live AI guidance results](./docs/screenshots/02-live-ai-results.png)
+
+### Practice Mode
+
+![AI Social Copilot practice mode and guidance flow](./docs/screenshots/03-practice-mode.png)
+
 ## Repository Link
 
 Add your GitHub repository link here after pushing:
