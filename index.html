@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Social Copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Hackathon Prototype</p>
+        <h1>AI Social Copilot</h1>
+        <p class="hero-text">
+          Real-time workplace conversation support for international students, early-career professionals,
+          and anyone navigating unfamiliar professional environments.
+        </p>
+        <div class="hero-badges">
+          <span>Context-aware suggestions</span>
+          <span>Conversation practice</span>
+          <span>Cultural communication tips</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="card-label">Why it matters</p>
+        <p class="card-value">Small conversations drive belonging, trust, and collaboration.</p>
+        <p class="card-note">
+          This prototype demonstrates how AI can reduce social friction at work and help people feel more connected.
+        </p>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <form id="copilot-form" class="panel input-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Step 1</p>
+          <h2>Describe the situation</h2>
+        </div>
+
+        <label>
+          Your role
+          <select id="role" name="role">
+            <option value="international student">International student</option>
+            <option value="new intern">New intern</option>
+            <option value="early-career employee">Early-career employee</option>
+            <option value="new team member">New team member</option>
+          </select>
+        </label>
+
+        <label>
+          Workplace scenario
+          <select id="scenario" name="scenario">
+            <option value="team meeting">Team meeting</option>
+            <option value="lunch break">Lunch break</option>
+            <option value="hallway chat">Hallway chat</option>
+            <option value="manager check-in">Manager check-in</option>
+            <option value="coffee chat">Coffee chat</option>
+          </select>
+        </label>
+
+        <label>
+          What do you want help with?
+          <select id="goal" name="goal">
+            <option value="starting a conversation">Starting a conversation</option>
+            <option value="keeping the conversation going">Keeping the conversation going</option>
+            <option value="joining an existing conversation">Joining an existing conversation</option>
+            <option value="ending the conversation naturally">Ending the conversation naturally</option>
+          </select>
+        </label>
+
+        <label>
+          Preferred tone
+          <select id="tone" name="tone">
+            <option value="friendly">Friendly</option>
+            <option value="professional">Professional</option>
+            <option value="warm">Warm</option>
+            <option value="confident">Confident</option>
+          </select>
+        </label>
+
+        <label>
+          Extra context
+          <textarea
+            id="context"
+            name="context"
+            rows="5"
+            placeholder="Example: I am new to the team and want to talk to a coworker after the meeting, but I do not want to sound awkward."
+          ></textarea>
+        </label>
+
+        <button type="submit" class="primary-btn">Generate guidance</button>
+      </form>
+
+      <section class="panel output-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Step 2</p>
+          <h2>Your conversation playbook</h2>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          <p>Choose a scenario and generate AI guidance to see tailored conversation starters, follow-ups, and practice prompts.</p>
+        </div>
+
+        <div id="results" class="results hidden">
+          <div class="result-grid">
+            <article class="result-card">
+              <h3>Conversation starters</h3>
+              <ul id="starters-list"></ul>
+            </article>
+            <article class="result-card">
+              <h3>Follow-up responses</h3>
+              <ul id="followups-list"></ul>
+            </article>
+            <article class="result-card">
+              <h3>What to say next</h3>
+              <ul id="nextsteps-list"></ul>
+            </article>
+            <article class="result-card">
+              <h3>Cultural tips</h3>
+              <ul id="tips-list"></ul>
+            </article>
+          </div>
+
+          <article class="practice-card">
+            <div>
+              <p class="eyebrow">Practice Mode</p>
+              <h3>Mini simulation</h3>
+            </div>
+            <div id="practice-script" class="practice-script"></div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="feature-strip">
+      <article>
+        <h3>Confidence-first</h3>
+        <p>Supports people who know what they want to say but need help saying it naturally.</p>
+      </article>
+      <article>
+        <h3>Simple inputs</h3>
+        <p>Users describe the situation in plain language and receive contextual suggestions instantly.</p>
+      </article>
+      <article>
+        <h3>Expandable</h3>
+        <p>This can grow into voice mode, multilingual support, and workplace-specific fine-tuning.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
