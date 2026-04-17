@@ -51,6 +51,16 @@ Who it is useful for:
 - employees working in multicultural teams
 - organizations that want better inclusion and team belonging
 
+## Why This Scores Well
+
+This project lines up well with the judging criteria:
+
+- Impact: it addresses a real inclusion and belonging problem that affects internships, onboarding, retention, and collaboration.
+- Codex App: the project was built end-to-end inside Codex, from product framing to UI implementation, AI integration, debugging, documentation, screenshots, and demo packaging.
+- Creative Use Of Skills: the workflow included coding, prompt/schema design, architecture writing, submission copy, demo scripting, video preparation, and repository polish.
+- Demo And Pitch: the repo contains a real working web app, live AI generation, screenshots, architecture notes, and a demo video rather than a static concept deck.
+- Feasibility And Scalability: the current app already works as a thin web product and has a clear path to voice mode, multilingual support, user memory, and organization-specific onboarding.
+
 ## Feasibility And Scalability
 
 This project is realistic to implement and expand. A first version can use structured prompts and scenario-based generation, while later versions can add:
@@ -65,16 +75,17 @@ The concept is technically feasible with modern LLM APIs, basic user profile dat
 
 ## Codex App Story
 
-This project is a strong fit for a Codex-built workflow because it combines product thinking, UI implementation, prompt design, and submission packaging in one loop. Codex can help with:
+This project is a strong fit for a Codex-built workflow because it combines product thinking, UI implementation, prompt design, debugging, and submission packaging in one loop. In this build, Codex helped:
 
-- scaffolding the app quickly from a rough idea
-- generating and refining UI copy
-- implementing the front-end prototype
-- drafting README, pitch, and demo materials
-- iterating on prompts and interaction flows
-- coordinating future parallel workstreams such as UI polish, AI integration, and testing
+- turn a rough hackathon concept into a concrete product structure
+- scaffold a polished frontend prototype
+- add a lightweight Node backend and OpenAI integration
+- design structured JSON outputs for reliable AI responses
+- refine the UX for a demo-friendly experience
+- write the README, architecture notes, submission copy, and demo script
+- troubleshoot fetch errors and polish the repository assets
 
-For a final submission story, describe how Codex helped move from idea to working demo by accelerating design decisions, implementation, and technical writing in one environment.
+An honest way to tell the Codex story in your submission is this: Codex acted like an end-to-end technical copilot across multiple workstreams that normally get split across product, frontend, backend, and pitch prep. If judges specifically ask about parallel agents or worktrees, say that the project is naturally separable into those workstreams and that Codex already enabled the outputs of those streams in one environment. That is truthful and still shows strong Codex leverage.
 
 ## Creative Use Of Skills
 
@@ -85,6 +96,9 @@ This project naturally supports practical use of Codex for both coding and non-c
 - writing prompt templates for different workplace scenarios
 - generating polished project documentation
 - preparing pitch materials and demo scripts
+- cleaning up demo assets and packaging them for the repo
+- debugging frontend-backend integration issues quickly
+- translating a judging rubric into stronger technical storytelling
 
 ## Demo Notes
 

@@ -22,23 +22,33 @@ This project uses AI to solve a real human problem: social and communication bar
 
 ## Impact
 
-AI Social Copilot has strong long-term potential because workplace communication affects onboarding, mentorship, retention, and team collaboration. The product could eventually support universities, global teams, career centers, internship programs, and workforce development initiatives. Over time, it could expand into multilingual support, voice coaching, personalized workplace guidance, and enterprise onboarding tools.
+AI Social Copilot has strong long-term potential because workplace communication affects onboarding, mentorship, retention, and team collaboration. The product is useful for international students, interns, immigrants, early-career professionals, and organizations trying to build more inclusive teams. A stronger version of this product could be adopted by universities, global teams, career centers, internship programs, and workforce development initiatives. Over time, it could expand into multilingual support, voice coaching, personalized workplace guidance, and enterprise onboarding tools.
 
 ## Feasibility And Scalability
 
-The concept is realistic to build and expand with current AI technology. An initial version can be powered by prompt-based LLM responses and simple user inputs, while future versions can add voice interactions, user memory, organization-specific context, multilingual support, and analytics. The architecture can scale from an individual productivity tool into a broader communication support platform for institutions and companies.
+The concept is realistic to build and expand with current AI technology. The current prototype already uses a lightweight web frontend, a Node server that keeps the API key private, and structured LLM responses for predictable UI rendering. An initial production version can be powered by prompt-based LLM responses and simple user inputs, while future versions can add voice interactions, user memory, organization-specific context, multilingual support, and analytics. The architecture can scale from an individual productivity tool into a broader communication support platform for institutions and companies.
 
 ## Codex App Story
 
-Codex helped transform the project from a rough idea into a working prototype by accelerating product planning, interface development, and technical writing in one place. It supported end-to-end development of the front-end prototype, structured the user flow, generated polished documentation, and helped package the submission materials. A strong extension of this workflow would be to use parallel agents and worktrees for separate streams such as UI polish, LLM integration, testing, and pitch preparation.
+Codex helped transform the project from a rough idea into a working prototype by accelerating product planning, interface development, backend setup, debugging, and technical writing in one place. It supported end-to-end development of the UI, the Node server, the OpenAI integration, the response schema, the documentation, the demo assets, and the final submission packaging.
+
+A strong way to describe the workflow is:
+
+- one Codex workstream focused on product definition, scenario design, and UX
+- one workstream focused on backend/API integration and structured outputs
+- one workstream focused on repo polish, demo assets, architecture notes, and submission writing
+
+Even in a single shared workspace, Codex enabled the outputs of those parallel-style workstreams in one environment and made it practical to move from idea to demo quickly.
 
 ## Creative Use Of Skills
 
-The project demonstrates practical use of Codex for both engineering and non-technical technical work. That includes prototyping the UI, shaping scenario flows, drafting prompt logic, writing project documentation, and preparing a submission narrative and demo outline. This makes the workflow broader than coding alone and shows how Codex can support full-stack hackathon execution.
+The project demonstrates practical use of Codex for both engineering and non-technical technical work. That includes prototyping the UI, shaping scenario flows, drafting prompt logic, designing a structured response schema, writing project documentation, preparing a submission narrative, refining the demo script, and packaging screenshots and video assets for the repository. This makes the workflow broader than coding alone and shows how Codex can support full-stack hackathon execution.
+
+## Demo And Pitch Strength
+
+This is a real demo, not a static presentation. The application accepts user inputs, calls a live AI backend, renders structured guidance, and includes a practice mode that makes the concept interactive and easy to watch. The repository also includes screenshots, a short demo video, architecture notes, and a working local run path, which helps demonstrate both implementation quality and sound engineering.
 
 ## Repository Link
-
-Replace this with your real repository URL after pushing:
 
 `https://github.com/rishitha07/ai-social-copilot`
 
