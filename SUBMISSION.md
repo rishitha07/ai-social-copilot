@@ -40,7 +40,7 @@ The project demonstrates practical use of Codex for both engineering and non-tec
 
 Replace this with your real repository URL after pushing:
 
-`https://github.com/<your-username>/ai-social-copilot`
+`https://github.com/rishitha07/ai-social-copilot`
 
 ## Additional Resources Or Supporting Materials
 

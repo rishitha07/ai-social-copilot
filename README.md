@@ -92,7 +92,7 @@ This repository currently contains a polished front-end prototype that demonstra
 
 Add your GitHub repository link here after pushing:
 
-`https://github.com/<your-username>/ai-social-copilot`
+`https://github.com/rishitha07/ai-social-copilot`
 
 ## Additional Resources Or Supporting Materials
 
