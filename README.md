@@ -126,6 +126,12 @@ Store repo screenshots in [docs/screenshots](/Users/rishithapapolu/Documents/Cod
 
 ![AI Social Copilot practice mode and guidance flow](./docs/screenshots/03-practice-mode.png)
 
+## Demo Video
+
+Watch the cleaned product walkthrough here:
+
+[demo_ai_social_copilot_clean.mp4](/Users/rishithapapolu/Documents/Codex/2026-04-17-i-m-participating-in-a-hackathon/demo/demo_ai_social_copilot_clean.mp4)
+
 ## Repository Link
 
 Add your GitHub repository link here after pushing:
