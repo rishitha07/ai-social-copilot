@@ -130,7 +130,7 @@ Store repo screenshots in [docs/screenshots](/Users/rishithapapolu/Documents/Cod
 
 Watch the product walkthrough here:
 
-[ai_social_copilot.mp4](/Users/rishithapapolu/Documents/Codex/2026-04-17-i-m-participating-in-a-hackathon/demo/ai_social_copilot.mp4)
+[ai_social_copilot.mp4](./demo/ai_social_copilot.mp4)
 
 ## Repository Link
 
